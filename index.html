@@ -11,40 +11,62 @@
 <body>
   <div class="long-container">
     <div class="parallax-container">
-      <div class="parallax-item item1"></div>
-      <div class="parallax-item item2"></div>
-      <div class="parallax-item item3"></div>
-      <div class="parallax-item item4"></div>
+      <div class="parallax-item item1 odd"></div>
+      <div class="parallax-item item2 even"></div>
+      <div class="parallax-item item3 odd"></div>
+      <div class="parallax-item item4 even"></div>
+      <div class="parallax-item item5 odd"></div>
+      <div class="parallax-item item6 even"></div>
+      <div class="parallax-item item7 odd"></div>
+      <div class="parallax-item item8 even"></div>
+      <div class="parallax-item item9 odd"></div>
+      <div class="parallax-item item10 even"></div>
+      <div class="parallax-item item11 odd"></div>
     </div>
   </div>
   <script>
     window.addEventListener('scroll', function() {
       var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      
       var parallaxItems = document.querySelectorAll('.parallax-item');
-      var parallaxContainer = document.querySelector('.parallax-container');
-      
-      parallaxItems.forEach(function(item, index) {
-        var speed = (index + 1) * 0.1; // Adjust the speed of the parallax effect
+      var speedFactor = 0.06;
 
-        var translateY = (index % 2 === 0) ? scrollTop * speed : -scrollTop * speed;
-        var translateX = (index % 2 === 0) ? scrollTop * speed : -scrollTop * speed;
-        var scale = 1 - (index * 0.1); // Adjust the scale factor
-        var translateZ = -index * 10 + scrollTop * speed * 10; // Adjust the translateZ value based on scroll position
-        
+      parallaxItems.forEach(function(item, index) {
+    var speed = speedFactor * (index + 1);
+        var translateY = 0;
+        //  scrollTop * speed : -scrollTop * speed ;
+        var translateX = (index % 2 === 0) ? scrollTop * speed / 9 : -scrollTop * speed / 9;
+        var scale = 1;
+        var translateZ = 12 * 10 + scrollTop * speed * 1; 
         item.style.transform = `translate3d(${translateX}px, ${translateY}px, ${translateZ}px) scale(${scale})`;
       });
     });
+
   </script>
 
   <style>
-    body {
+    .parallax-item {
+  margin: 20px; 
+}
+
+.odd {
+  margin-left: 10vh; /* Extra ruimte aan de rechterkant van oneven items */
+}
+
+.even {
+  margin-right: 10vh; /* Extra ruimte aan de linkerkant van even items */
+}
+
+  html {
+    scroll-behavior: smooth;
+  }  
+  
+  body {
       margin: 0;
-      background-color: black;
+      background: linear-gradient(#274E47, white);
     }
 
     .long-container {
-      height: 300vh;
+      height: 830vh;
     }
 
     .parallax-container {
@@ -56,8 +78,7 @@
       height: 100vh;
       overflow: hidden;
       perspective: 1000px;
-      background: linear-gradient(rgb(0, 0, 0) 0%, rgb(49, 128, 38) 73%, rgb(30, 216, 30) 100%); 
-      animation: rotate 3s linear infinite;
+      background: linear-gradient(#274E47, #000000);
     }
 
     @keyframes rotate {
@@ -70,35 +91,81 @@
     }
 
     .parallax-item {
+      
       position: absolute;
-      top: 50%;
       transform-style: preserve-3d;
-      width: 200px;
-      height: 200px;
+      width: 90px;
+      height: 90px;
       background-size: cover;
       background-position: center;
-      transition: transform 0.5s ease;
+      transition: transform 0.25s ease;
       pointer-events: none;
     }
 
     .item1 {
-      transform: translate3d(110%, -25%, -2200px);
-      background-image: url('./img/masahiro-miyagi-18ef3TE0jdQ-unsplash.jpg');
+    
+      background-image: url('./img/man-staring-into-nothing.png');
+      transform: translate3d(6.83259px, 0px, 181.493px) scale(1);
     }
 
     .item2 {
-      transform: translate3d(-50%, 0, -1000px);
-      background-image: url('./img/yuliya-matuzava-f0pmo9a0XP4-unsplash.jpg');
+    
+      background-image: url('./img/man-staring-into-nothing.png');
+      transform: translate3d(-13.6652px, 0px, 242.987px) scale(1);
     }
 
     .item3 {
-      transform: translate3d(-90%, -135%, -4000px);
-      background-image: url('./img/zeng-yili-zIfkYRTQ_OM-unsplash.jpg');
+    
+      background-image: url('./img/man-staring-into-nothing.png');
+      transform: translate3d(20.4978px, 0px, 304.48px) scale(1);
     }
 
     .item4 {
-      transform: translate3d(130%, -240%, -6000px);
-      background-image: url('./img/yasintha-perera-W6lQ5zFV8xQ-unsplash.jpg');
+      
+      background-image: url('./img/man-staring-into-nothing.png');
+      transform: translate3d(-27.3304px, 0px, 365.973px) scale(1);
+    }
+
+    .item5 {
+      
+        background-image: url('./img/man-staring-into-nothing.png');
+        transform: translate3d(34.163px, 0px, 427.467px) scale(1);
+    }
+
+    .item6 {
+      
+        background-image: url('./img/man-staring-into-nothing.png');
+        transform: translate3d(-40.9956px, 0px, 488.96px) scale(1);
+    }
+
+    .item7 {
+      
+        background-image: url('./img/man-staring-into-nothing.png');
+transform: translate3d(47.8281px, 0px, 550.453px) scale(1);
+    }
+
+    .item8 {
+      
+        background-image: url('./img/man-staring-into-nothing.png');
+        transform: translate3d(-54.6607px, 0px, 611.947px) scale(1);
+    }
+
+    .item9 {
+      
+        background-image: url('./img/man-staring-into-nothing.png');
+        transform: translate3d(61.4933px, 0px, 673.44px) scale(1);
+    }
+
+    .item10 {
+      
+        background-image: url('./img/man-staring-into-nothing.png');
+        transform: translate3d(-68.3259px, 0px, 734.933px) scale(1);
+    }
+
+    .item11 {
+      
+        background-image: url('./img/man-staring-into-nothing.png');
+        transform: translate3d(75.1585px, 0px, 796.427px) scale(1);
     }
   </style>
 </body>
